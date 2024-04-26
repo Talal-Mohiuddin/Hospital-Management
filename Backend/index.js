@@ -38,9 +38,8 @@ app.use(
     tempFileDir: "/tmp/",
   })
 );
-
-app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 const port = process.env.PORT || 3000;
 
