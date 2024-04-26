@@ -18,9 +18,10 @@ cloudinary.config({
 
 
 const app = express();
+const vercelUrl = "https://hospital-management-sepia.vercel.app";
 app.use(
   cors({
-    origin: [process.env.FRONT_END_URL, process.env.Dashboard_URL],
+    origin: [process.env.FRONT_END_URL, process.env.Dashboard_URL, vercelUrl],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
