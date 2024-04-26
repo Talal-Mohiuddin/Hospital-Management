@@ -19,10 +19,10 @@ cloudinary.config({
 const app = express();
 app.use(express.json());
 app.use(cookieParser());
-const vercelUrl = "https://hospital-management-sepia.vercel.app";
+const renderUrl = "https://hospital-management-5z0r.onrender.com";
 app.use(
   cors({
-    origin: [process.env.FRONT_END_URL, process.env.Dashboard_URL, vercelUrl],
+    origin: [process.env.FRONT_END_URL, process.env.Dashboard_URL, renderUrl],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
