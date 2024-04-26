@@ -19,7 +19,7 @@ cloudinary.config({
 const app = express();
 app.use(express.json());
 app.use(cookieParser());
-const renderUrl = "https://hospital-management-5z0r.onrender.com";
+const renderUrl = "https://hospital-management-5z0r.onrender.com"
 app.use(
   cors({
     origin: [process.env.FRONT_END_URL, process.env.Dashboard_URL, renderUrl],
@@ -71,7 +71,6 @@ app.use("/user", userRouter);
 
 import appointmenntRouter from "./src/routes/appointment.router.js";
 app.use("/appointment", appointmenntRouter);
-
 
 app.use(express.static(path.join(_dirname, "../Frontend/dist")));
 app.use(express.static(path.join(_dirname, "../Dashboard/dist")));
