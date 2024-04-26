@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import fileUpload from "express-fileupload";
-import {v2 as cloudinary} from "cloudinary";
+import { v2 as cloudinary } from "cloudinary";
 import { errorMiddleware } from "./src/middlewares/error.middileware.js";
 import bodyParser from "body-parser";
 import path from "path";
@@ -15,7 +15,6 @@ cloudinary.config({
   api_key: process.env.CLOUDINARY_API_KEY,
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
-
 
 const app = express();
 app.use(express.json());
@@ -28,9 +27,6 @@ app.use(
     credentials: true,
   })
 );
-
-
-
 
 app.use(express.urlencoded({ extended: true }));
 app.use(
@@ -65,28 +61,14 @@ connectDb().then(() => {
   });
 });
 
-const _dirname = path.resolve();
-
-
 import messageRouter from "./src/routes/message.router.js";
 app.use("/message", messageRouter);
-
 
 import userRouter from "./src/routes/user.router.js";
 app.use("/user", userRouter);
 
-import appointmenntRouter from './src/routes/appointment.router.js'
-app.use('/appointment', appointmenntRouter)
+import appointmenntRouter from "./src/routes/appointment.router.js";
+app.use("/appointment", appointmenntRouter);
 
-app.use(express.static(path.join(_dirname, "../Frontend/dist")));
-app.use(express.static(path.join(_dirname, "../Dashboard/dist")));
-
-app.get("/dashboard/*", (req, res) =>
-  res.sendFile(path.join(_dirname, "../Dashboard/dist/index.html"))
-);
-
-app.get("*", (req, res) =>
-  res.sendFile(path.join(_dirname, "../Frontend/dist/index.html"))
-);
 app.use(errorMiddleware);
 export default app;

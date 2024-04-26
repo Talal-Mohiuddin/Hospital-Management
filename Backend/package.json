@@ -6,10 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js",
-    "buildFrontend": "npm install --prefix ../Frontend && npm run build --prefix ../Frontend",
-    "buildDashboard": "npm install --prefix ../Dashboard && npm run build --prefix ../Dashboard",
-    "build": "npm i && npm run buildFrontend && npm run buildDashboard"
+    "start": "nodemon index.js"
   },
   "keywords": [],
   "author": "",
