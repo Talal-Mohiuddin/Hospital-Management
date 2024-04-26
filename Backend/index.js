@@ -61,6 +61,8 @@ connectDb().then(() => {
   });
 });
 
+const _dirname = path.resolve();
+
 import messageRouter from "./src/routes/message.router.js";
 app.use("/message", messageRouter);
 
@@ -69,6 +71,18 @@ app.use("/user", userRouter);
 
 import appointmenntRouter from "./src/routes/appointment.router.js";
 app.use("/appointment", appointmenntRouter);
+
+
+app.use(express.static(path.join(_dirname, "../Frontend/dist")));
+app.use(express.static(path.join(_dirname, "../Dashboard/dist")));
+
+app.get("/dashboard/*", (req, res) =>
+  res.sendFile(path.join(_dirname, "../Dashboard/dist/index.html"))
+);
+
+app.get("*", (req, res) =>
+  res.sendFile(path.join(_dirname, "../Frontend/dist/index.html"))
+);
 
 app.use(errorMiddleware);
 export default app;

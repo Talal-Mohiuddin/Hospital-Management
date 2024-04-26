@@ -1,1 +1,1 @@
-export const URL = "https://hospital-management-sepia.vercel.app";
+export const URL = "https://hospital-management-weld.vercel.app/";
