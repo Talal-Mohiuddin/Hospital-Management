@@ -18,6 +18,8 @@ cloudinary.config({
 
 
 const app = express();
+app.use(express.json());
+app.use(cookieParser());
 const vercelUrl = "https://hospital-management-sepia.vercel.app";
 app.use(
   cors({
@@ -29,8 +31,7 @@ app.use(
 
 
 
-app.use(express.json());
-app.use(cookieParser());
+
 app.use(express.urlencoded({ extended: true }));
 app.use(
   fileUpload({
